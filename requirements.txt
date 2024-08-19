@@ -1,3 +1,2 @@
 sqlalchemy
 plotly
-collections
