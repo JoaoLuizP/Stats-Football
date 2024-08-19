@@ -7,7 +7,7 @@ import json
 
 
 # Lendo o arquivo config.json
-with open('connection\history_confrontos.py\json.json') as f:
+with open('connection\json.json') as f:
     config_data = json.load(f)
 
 # Acessando as informações

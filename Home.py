@@ -13,8 +13,8 @@ import streamlit as st
 import datetime
 import json
 
-# Lendo o arquivo config.json
-with open('Stats-Football\connection\history_confrontos.py\json.json') as f:
+# Lendo o arquivo config.json 
+with open('connection\json.json') as f: 
     config_data = json.load(f)
 
 # Acessando as informações
