@@ -1,5 +1,4 @@
 import pandas as pd
-import psycopg2
 from sqlalchemy import create_engine
 from datetime import datetime
 from openpyxl import load_workbook
@@ -22,12 +21,7 @@ import datetime
 
 
 
-local_online = psycopg2.connect(
-    user="postgres",
-    password="Santos010802.2311",
-    host="woefully-hot-vulture.data-1.use1.tembo.io",
-    port="5432",
-    database="postgres")
+
 engine_online = create_engine('postgresql://postgres:Santos010802.2311@woefully-hot-vulture.data-1.use1.tembo.io:5432')
 
 
