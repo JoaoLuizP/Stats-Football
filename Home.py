@@ -598,7 +598,7 @@ if temporada != None:
                         col4.metric(f"**% de Over 3.5FT**", round(df_filtrado_away['Over35_FT'].mean() * 100, 2))
 
                     with tab3:
-                        col1, col2, col3, col4 = st.columns([1, 0.5, 0.5, 0.4])
+                        col1, col2, col3, col4 = st.columns([1, 0.5, 0.5, 0.5])
                         col1.text(f'Last {len(df_filtrado_historico)}')
                         col4.info('History may be incomplete', icon="ℹ️")
                         
@@ -622,16 +622,19 @@ if temporada != None:
         col1, col2, col3 = st.sidebar.columns([0.1, 0.1, 0.1])
         # Colocar o botão na última coluna (canto direito)
         with col1:
-            if st.button("Gols"):
-                st.switch_page("D:\\João\\Python projects\\futebol\\st_fut\\pages\\2_🥅_Gols.py")
+            btn = st.link_button("Gols", "https://footyanalyzer.streamlit.app/Gols")
+            #if st.button("Gols"):
+            #    st.switch_page("D:\\João\\Python projects\\futebol\\st_fut\\pages\\2_🥅_Gols.py")
             
         with col2:
-            if st.button("Cantos"):
-                st.switch_page("D:\\João\\Python projects\\futebol\\st_fut\\pages\\3_⛳_Cantos.py")
+            btn = st.link_button("Cantos", "https://footyanalyzer.streamlit.app/Cantos")
+            #if st.button("Cantos"):
+            #    st.switch_page("D:\\João\\Python projects\\futebol\\st_fut\\pages\\3_⛳_Cantos.py")
 
 
         with col3:
-            if st.button("Chutes"):
-                st.switch_page("D:\\João\\Python projects\\futebol\\st_fut\\pages\\4_⚽︎_Chutes.py")
+            btn = st.link_button("Chutes", "https://footyanalyzer.streamlit.app/Chutes")
+            #if st.button("Chutes"):
+            #    st.switch_page("D:\\João\\Python projects\\futebol\\st_fut\\pages\\4_⚽︎_Chutes.py")
 
 

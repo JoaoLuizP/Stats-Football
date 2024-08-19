@@ -157,18 +157,19 @@ st.sidebar.text(f"Temporada selecionada: {temporada_selecionada}")
 
 checkbox = st.sidebar.checkbox("Tirar dados Nulos", value=True)
 
-if df_depois_de_amanha != None:
+if df_depois_de_amanha == None:
+    data_desejada = st.sidebar.selectbox(
+    'Date:',
+    [hoje, amanha],
+    index=None
+    ) 
+else:
     data_desejada = st.sidebar.selectbox(
         'Date:',
         [hoje, amanha, d_mais_2],
         index=None
     )
-else:
-    data_desejada = st.sidebar.selectbox(
-    'Date:',
-    [hoje, amanha],
-    index=None
-)
+
     
 
 if data_desejada != None:

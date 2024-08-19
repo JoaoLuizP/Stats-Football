@@ -18,8 +18,9 @@ col1, col2, col3 = st.columns([1, 1, 0.12])
 with col1:
     st.markdown(f"#### Estatistica de chutes ⚽︎ ")
 with col3:
-    if st.button("Home"):
-        st.switch_page("D:\\João\\Python projects\\futebol\\st_fut\\Home.py")
+    btn = st.link_button("Home", "https://footyanalyzer.streamlit.app")
+    #if st.button("Home"):
+    #    st.switch_page("D:\\João\\Python projects\\futebol\\st_fut\\Home.py")
 
 
 if 'df_2' not in st.session_state or 'df_3' not in st.session_state:
