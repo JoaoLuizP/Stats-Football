@@ -11,19 +11,28 @@ from numpy import random
 import numpy as np
 import streamlit as st
 import datetime
+import json
+
+# Lendo o arquivo config.json
+with open('connection\history_confrontos.py\json.json') as f:
+    config_data = json.load(f)
+
+# Acessando as informações
+host = config_data['host']
+senha = config_data['senha']
+user = config_data['user']
+port = config_data['port']
 
 
 
 
-
-
-local_online = psycopg2.connect(
-    user="postgres",
-    password="Santos010802.2311",
-    host="woefully-hot-vulture.data-1.use1.tembo.io",
-    port="5432",
+local_db = psycopg2.connect(
+    user=user,
+    password=senha,
+    host=host,
+    port=port,
     database="postgres")
-engine_online = create_engine('postgresql://postgres:Santos010802.2311@woefully-hot-vulture.data-1.use1.tembo.io:5432')
+engine_online = create_engine(f'postgresql://{user}:{senha}@{host}:{port}')
 
 
 
