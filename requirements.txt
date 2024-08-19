@@ -1,6 +1,6 @@
-streamlit
 sqlalchemy
 PySimpleGUI
 openpyxl
 plotly
 tkinter
+psycopg2
