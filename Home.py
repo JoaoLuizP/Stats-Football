@@ -5,7 +5,6 @@ import time
 import math
 from numpy import random
 import numpy as np
-import matplotlib.pyplot as plt
 import streamlit as st
 from collections import Counter
 import plotly.express as px
