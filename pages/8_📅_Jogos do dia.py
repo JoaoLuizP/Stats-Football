@@ -209,7 +209,7 @@ if data_desejada != None:
                             "BTTS & 2.5+", format="%d", min_value=0, max_value=100
                         ),
                     })
-    elif data_desejada == df_depois_de_amanha:
+    elif data_desejada == amanha:
         league = sorted(df_depois_de_amanha["League"].unique())
         leagues = st.sidebar.selectbox("League:", league, index=None, placeholder="Choose League") # Dropdown 
         df_depois_de_amanha = df_depois_de_amanha[df_hoje['ExC'] != 'Liga não encontrada']
