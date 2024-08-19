@@ -1,4 +1,2 @@
 sqlalchemy
-PySimpleGUI
-openpyxl
 plotly

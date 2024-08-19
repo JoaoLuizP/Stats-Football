@@ -1,12 +1,8 @@
 import pandas as pd
 from sqlalchemy import create_engine
 from datetime import datetime
-from openpyxl import load_workbook
-from openpyxl.styles.fills import PatternFill
-from openpyxl.styles import Font
 import time
 import math
-import PySimpleGUI as sg
 from numpy import random
 import numpy as np
 import matplotlib.pyplot as plt
