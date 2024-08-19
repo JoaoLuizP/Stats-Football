@@ -1,6 +1,6 @@
+streamlit
 psycopg2
 sqlalchemy
 PySimpleGUI
 openpyxl
-plotly.express
-plotly.graph_objects
+plotly
