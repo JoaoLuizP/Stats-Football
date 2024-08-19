@@ -184,7 +184,7 @@ else:
 
     else:
         st.divider()
-        with st.expander("OBS", icon="⚠️"):
+        with st.expander(" OBS", icon="⚠️"):
             st.write('''
-                Selecione os times desejados na aba 'Home' e volte para essa aba ou qualquer outra (Gols;Cantos;Chutes) para mostrar suas estatisticas na temporada e campeonato atual.
+                Selecione os times desejados na aba 'Home' e volte para essa aba ou outra (Cantos;Chutes) para mostrar suas estatisticas na temporada e campeonato atual.
             ''')

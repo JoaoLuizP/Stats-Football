@@ -49,3 +49,9 @@ else:
             col3_1.metric(f"Média de cantos geral", round(((df_filtered3['TotalCorners_FT'].sum())/len(df_filtered3)),2))
 
         
+    else:
+        st.divider()
+        with st.expander(" OBS", icon="⚠️"):
+            st.write('''
+                Selecione os times desejados na aba 'Home' e volte para essa aba ou outra (Gols;Chutes) para mostrar suas estatisticas na temporada e campeonato atual.
+            ''')

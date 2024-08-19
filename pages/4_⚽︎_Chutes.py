@@ -59,4 +59,9 @@ else:
             col3.metric(f"Média de chutes ao gol sofridos", round(((df_filtered3['ShotsOnTarget_H'].sum())/len(df_filtered3)),2))
             col3_1.metric(f"Média de chutes feitos geral", round(((df_filtered3['Shots_A'].sum())/len(df_filtered3)),2)) 
 
-
+    else:
+        st.divider()
+        with st.expander(" OBS", icon="⚠️"):
+            st.write('''
+                Selecione os times desejados na aba 'Home' e volte para essa aba ou outra (Gols;Cantos) para mostrar suas estatisticas na temporada e campeonato atual.
+            ''')
