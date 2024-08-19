@@ -174,7 +174,7 @@ else:
 
 if data_desejada != None:
 
-    with st.expander("OBS", icon="🚨"):
+    with st.expander("OBS", icon="⚠️"):
         st.write('''
             Apenas os jogos do dia cujas ligas estão no nosso banco de dados serão exibidos. Como não temos todas as ligas, alguns jogos podem não aparecer.
         ''')
