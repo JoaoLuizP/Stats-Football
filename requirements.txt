@@ -2,4 +2,3 @@ sqlalchemy
 PySimpleGUI
 openpyxl
 plotly
-psycopg2
