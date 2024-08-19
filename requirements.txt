@@ -3,3 +3,4 @@ sqlalchemy
 PySimpleGUI
 openpyxl
 plotly
+tkinter
