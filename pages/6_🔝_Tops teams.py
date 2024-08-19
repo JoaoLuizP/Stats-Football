@@ -119,9 +119,9 @@ with col1:
         st.markdown(f"### Melhores times para {opcao_0}")
     else:
         st.markdown(f"### Melhores times para ")
-with col3:
-    if st.button("Home"):
-        st.switch_page("D:\\João\\Python projects\\futebol\\st_fut\\Home.py")
+#with col3:
+#    if st.button("Home"):
+#        st.switch_page("D:\\João\\Python projects\\futebol\\st_fut\\Home.py")
 
 
 
