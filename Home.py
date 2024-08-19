@@ -1,14 +1,15 @@
 import pandas as pd
+import psycopg2
 from sqlalchemy import create_engine
 from datetime import datetime
+from openpyxl import load_workbook
+from openpyxl.styles.fills import PatternFill
+from openpyxl.styles import Font
 import time
 import math
 from numpy import random
 import numpy as np
 import streamlit as st
-from collections import Counter
-import plotly.express as px
-import plotly.graph_objects as go
 import datetime
 
 
@@ -16,7 +17,12 @@ import datetime
 
 
 
-
+local_online = psycopg2.connect(
+    user="postgres",
+    password="Santos010802.2311",
+    host="woefully-hot-vulture.data-1.use1.tembo.io",
+    port="5432",
+    database="postgres")
 engine_online = create_engine('postgresql://postgres:Santos010802.2311@woefully-hot-vulture.data-1.use1.tembo.io:5432')
 
 
