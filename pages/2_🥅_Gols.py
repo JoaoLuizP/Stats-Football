@@ -99,8 +99,8 @@ st.sidebar.markdown(
 col1, col2, col3 = st.columns([1, 1, 0.15])
 with col1:
     st.markdown(f"#### Estatistica de gols 🥅 ")
-with col3:
-    btn = st.link_button("Cantos", "https://footyanalyzer.streamlit.app/Cantos")
+#with col3:
+#    btn = st.link_button("Cantos", "https://footyanalyzer.streamlit.app/Cantos")
     #if st.button("Cantos"):
         #st.switch_page("D:\\João\\Python projects\\futebol\\st_fut\\pages\\3_⛳_Cantos.py")
 

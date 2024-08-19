@@ -619,22 +619,22 @@ if temporada != None:
         except:
             pass
          
-        col1, col2, col3 = st.sidebar.columns([0.1, 0.1, 0.1])
+        #col1, col2, col3 = st.sidebar.columns([0.1, 0.1, 0.1])
         # Colocar o botão na última coluna (canto direito)
-        with col1:
+        #with col1:
             #btn = st.link_button("Gols", "https://footyanalyzer.streamlit.app/Gols")
-            if st.button("Gols"):
-                st.switch_page("https://footyanalyzer.streamlit.app/Gols")
+            #if st.button("Gols"):
+            #    st.switch_page("https://footyanalyzer.streamlit.app/Gols")
             
-        with col2:
+        #with col2:
             #btn = st.link_button("Cantos", "https://footyanalyzer.streamlit.app/Cantos")
-            if st.button("Cantos"):
-                st.switch_page("https://footyanalyzer.streamlit.app/Cantos")
+            #if st.button("Cantos"):
+            #    st.switch_page("https://footyanalyzer.streamlit.app/Cantos")
 
 
-        with col3:
+        #with col3:
             #btn = st.link_button("Chutes", "https://footyanalyzer.streamlit.app/Chutes")
-            if st.button("Chutes"):
-                st.switch_page("https://footyanalyzer.streamlit.app/Chutes")
+            #if st.button("Chutes"):
+            #    st.switch_page("D:\\João\\Python projects\\futebol\\st_fut\\pages\\4_⚽︎_Chutes.py")
 
 
