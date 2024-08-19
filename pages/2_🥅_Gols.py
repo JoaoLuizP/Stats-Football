@@ -105,6 +105,12 @@ with col1:
         #st.switch_page("D:\\João\\Python projects\\futebol\\st_fut\\pages\\3_⛳_Cantos.py")
 
 if 'df_2' not in st.session_state or 'df_3' not in st.session_state:
+    st.divider()
+    with st.expander("OBS", icon=":material/alert:"):
+        st.write('''
+            Selecione os times desejados na aba 'HOME' e volte para essa aba ou qualquer outra (Gols;Cantos;Chutes) para mostrar suas estatisticas na temporada e campeonato atual.
+        ''')
+
     pass
 else:
     df_filtered2 = st.session_state["df_2"]
