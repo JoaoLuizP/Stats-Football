@@ -7,8 +7,12 @@ import json
 
 
 # Lendo o arquivo config.json
-with open('connection\json.json') as f:
-    config_data = json.load(f)
+try:
+    with open('connection\json.json') as f:
+        config_data = json.load(f)
+except:
+    with open('C:\\Users\\Pichau\\Documents\\GitHub\\Stats-Football\\connection\\json.json') as f:
+        config_data = json.load(f)
 
 # Acessando as informações
 host = config_data['host']
@@ -40,6 +44,7 @@ if checa_se_tbl_existe:
     time.sleep(1.5)
     cursor.execute('DROP TABLE tembo.base_geral')
     local_db.commit()
+    print('\nBase antiga excluída')
 
 
 
