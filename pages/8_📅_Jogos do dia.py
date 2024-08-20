@@ -195,7 +195,10 @@ if data_desejada != None:
 
 
     if data_desejada == hoje:
-        df_hoje = df_hoje[df_hoje['ExC'] != 'Liga não encontrada']
+        try:
+            df_hoje = df_hoje[df_hoje['ExC'] != 'Liga não encontrada']
+        except:
+            pass
         league = sorted(df_hoje["League"].unique())
         leagues = st.sidebar.selectbox("League:", league, index=None, placeholder="Choose League") # Dropdown 
         if checkbox:
@@ -223,7 +226,10 @@ if data_desejada != None:
                         ),
                     })
     elif data_desejada == amanha:
-        df_depois_de_amanha = df_depois_de_amanha[df_hoje['ExC'] != 'Liga não encontrada']
+        try:
+            df_depois_de_amanha = df_depois_de_amanha[df_hoje['ExC'] != 'Liga não encontrada']
+        except:
+            pass
         league = sorted(df_depois_de_amanha["League"].unique())
         leagues = st.sidebar.selectbox("League:", league, index=None, placeholder="Choose League") # Dropdown 
         if checkbox:
@@ -251,7 +257,10 @@ if data_desejada != None:
                         ),
                     })
     else:
-        df_amanha = df_amanha[df_hoje['ExC'] != 'Liga não encontrada']
+        try:
+            df_amanha = df_amanha[df_hoje['ExC'] != 'Liga não encontrada']
+        except:
+            pass
         league = sorted(df_amanha["League"].unique())
         leagues = st.sidebar.selectbox("League:", league, index=None, placeholder="Choose League") # Dropdown 
         if checkbox:
