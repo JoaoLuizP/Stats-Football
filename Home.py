@@ -2,6 +2,9 @@ import pandas as pd
 import psycopg2
 from sqlalchemy import create_engine
 from datetime import datetime
+from openpyxl import load_workbook
+from openpyxl.styles.fills import PatternFill
+from openpyxl.styles import Font
 import time
 import math
 from numpy import random
@@ -46,7 +49,7 @@ hide_st_style = """
             .css-1rs6os {visibility: hidden;}
             .css-17ziqus {visibility: hidden;}
             """
-
+            
 st.markdown(hide_st_style,unsafe_allow_html=True)
 
 
