@@ -11,6 +11,18 @@ st.sidebar.markdown(
     """, 
     unsafe_allow_html=True
 )
+
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            .css-1rs6os {visibility: hidden;}
+            .css-17ziqus {visibility: hidden;}
+            """
+            
+st.markdown(hide_st_style,unsafe_allow_html=True)
+
 col1, col2, col3 = st.columns([1, 1, 0.15])
 with col1:
     st.markdown(f"#### Estatistica de cantos ⛳ ")
