@@ -6,6 +6,28 @@ import datetime
 import numpy as np
 
 
+st.set_page_config(layout="wide")
+st.sidebar.markdown(
+    """
+    <div style="position: fixed; bottom: 0; width: 100%; text-align: left;">
+        Desenvolvido por <a href="https://joaoluizp.github.io/portfolio_jluizp/" target="_blank" style="color: #3399ff; text-decoration: none;">João Luiz Pinheiro</a>
+    </div>
+    """, 
+    unsafe_allow_html=True
+)
+
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            .css-1rs6os {visibility: hidden;}
+            .css-17ziqus {visibility: hidden;}
+            """
+            
+st.markdown(hide_st_style,unsafe_allow_html=True)
+
+
 ### Capturar base geral para calcular os prognosticos
 base_geral_atual_temp = base.df
 base_geral_atual_temp = pd.DataFrame(base_geral_atual_temp)
@@ -100,26 +122,6 @@ hoje = hoje.strftime('%d de %B de %Y')
 amanha = amanha.strftime('%d de %B de %Y')
 d_mais_2 = d_mais_2.strftime('%d de %B de %Y')
 
-st.set_page_config(layout="wide")
-st.sidebar.markdown(
-    """
-    <div style="position: fixed; bottom: 0; width: 100%; text-align: left;">
-        Desenvolvido por <a href="https://joaoluizp.github.io/portfolio_jluizp/" target="_blank" style="color: #3399ff; text-decoration: none;">João Luiz Pinheiro</a>
-    </div>
-    """, 
-    unsafe_allow_html=True
-)
-
-hide_st_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            header {visibility: hidden;}
-            .css-1rs6os {visibility: hidden;}
-            .css-17ziqus {visibility: hidden;}
-            """
-            
-st.markdown(hide_st_style,unsafe_allow_html=True)
 
 
 data = st.session_state["df_fut"]
