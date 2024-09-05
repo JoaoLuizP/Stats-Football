@@ -34,25 +34,25 @@ chutes_page = st.Page(
 top_ligas_page = st.Page(
     page="pages/5_Tops ligas.py",
     title="Tops ligas",
-    icon=":material/edit:"
+    icon=":material/table_rows:"
 )
 
 top_teams_page = st.Page(
     page="pages/6_Tops teams.py",
     title="Tops teams",
-    icon=":material/edit:"
+    icon=":material/groups:"
 )
 
 ranking_por_liga_page = st.Page(
     page="pages/7_Ranking por liga.py",
     title="Ranking por liga",
-    icon=":material/edit:"
+    icon=":material/podium:"
 )
 
 jogos_do_dia_page = st.Page(
     page="pages/8_Jogos do dia.py",
     title="Jogos do dia",
-    icon=":material/edit:"
+    icon=":material/calendar_today:"
 )
 
 
