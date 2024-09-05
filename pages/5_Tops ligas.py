@@ -15,23 +15,23 @@ st.sidebar.markdown(
 data = st.session_state["df_fut"]
 
 temporada_selecionada = st.sidebar.session_state["temporada_selecionada"]
-st.text(f"Temporada selecionada: {temporada_selecionada}")
+st.sidebar.text(f"Temporada selecionada: {temporada_selecionada}")
 
 
-opcao_0 = st.selectbox(
+opcao_0 = st.sidebar.selectbox(
     'Mercado desejado:',
     ['Ambas Marcam', 'Gols', 'ML'],
     index=None
 )
 
 
-opcao_1 = st.selectbox(
+opcao_1 = st.sidebar.selectbox(
     'Total da lista:',
     [5, 10, 15, 20],
     index=1  # O índice 1 corresponde à segunda opção (10)
 )
 
-opcao_2 = st.selectbox(
+opcao_2 = st.sidebar.selectbox(
     'Minimos de jogos na temporada',
     [5, 10, 15, 20],
     index=1
