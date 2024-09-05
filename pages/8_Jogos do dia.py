@@ -6,7 +6,6 @@ import datetime
 import numpy as np
 
 
-st.set_page_config(layout="wide")
 st.sidebar.markdown(
     """
     <div style="position: fixed; bottom: 0; width: 100%; text-align: left;">

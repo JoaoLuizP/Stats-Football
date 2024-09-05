@@ -57,7 +57,6 @@ def encontrar_proximo_jogo_away(time, base_next_games):
 
 
 
-st.set_page_config(layout="wide")
 st.sidebar.markdown(
     """
     <div style="position: fixed; bottom: 0; width: 100%; text-align: left;">
