@@ -18,24 +18,28 @@ temporada_selecionada = st.session_state["temporada_selecionada"]
 st.sidebar.text(f"Temporada selecionada: {temporada_selecionada}")
 
 
-opcao_0 = st.sidebar.selectbox(
+opcao_0 = st.selectbox(
     'Mercado desejado:',
     ['Ambas Marcam', 'Gols', 'ML'],
     index=None
 )
 
 
-opcao_1 = st.sidebar.selectbox(
+opcao_1 = st.selectbox(
     'Total da lista:',
     [5, 10, 15, 20],
     index=1  # O índice 1 corresponde à segunda opção (10)
 )
 
-opcao_2 = st.sidebar.selectbox(
+opcao_2 = st.selectbox(
     'Minimos de jogos na temporada',
     [5, 10, 15, 20],
     index=1
 )
+
+st.empty()
+st.divider()
+st.empty()
 
 
 col1, col2, col3 = st.columns([1, 1, 0.12])
