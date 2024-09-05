@@ -5,7 +5,7 @@ import streamlit as st
 
 
 home_page = st.Page(
-    page="Home.py",
+    page="pages/Home.py",
     title="Selecionar confronto",
     icon=":material/bar_chart:"
 )
@@ -61,11 +61,12 @@ pg = st.navigation(
     {
         "Home": [home_page, gols_page, cantos_page, chutes_page],
         "Análise": [top_ligas_page, top_teams_page, ranking_por_liga_page, jogos_do_dia_page],
-        "Resumo": []
-    }
+  }
 )
 
 # --- SHARED ON ALL PAGES ---
+st.logo("assets/logo.png")
+
 st.set_page_config(layout="wide", initial_sidebar_state="expanded") # Setar a pagina
 st.html('style.html')
 
