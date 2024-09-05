@@ -57,7 +57,7 @@ jogos_do_dia_page = st.Page(
 
 pontos_x_realidade = st.Page(
     page="pages/9_Pontos x realidade.py",
-    title="Expect. de pontos x realidade",
+    title="Pontos x Realidade",
     icon=":material/calendar_today:"
 )
 
@@ -65,7 +65,7 @@ pontos_x_realidade = st.Page(
 # ---- NAVIGATION SETUP ----
 pg = st.navigation(
     {
-        "Home": [home_page, gols_page, cantos_page, chutes_page],
+        "Home - Confronto": [home_page, gols_page, cantos_page, chutes_page],
         "Análise": [top_ligas_page, top_teams_page, ranking_por_liga_page, pontos_x_realidade],
         "Jogos do dia": [jogos_do_dia_page]
   }
