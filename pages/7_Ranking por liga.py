@@ -18,9 +18,9 @@ data = st.session_state["df_fut"]
 col1, col2, col3 = st.columns([1, 1, 0.12])
 with col1:
     st.markdown(f"### Estatistica dos times na liga 📊 ")
-    st.empty()
-    st.divider()
-    st.empty()
+st.empty()
+st.divider()
+st.empty()
 #with col3:
 #    if st.button("Home"):
 #        st.switch_page("D:\\João\\Python projects\\futebol\\st_fut\\Home.py")
