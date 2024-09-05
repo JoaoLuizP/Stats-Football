@@ -23,8 +23,7 @@ df = st.session_state["df_fut"]
 
 df 
 
-
-# Adicionando colunas para pagina Expectativa de pontos x realidade
+# Adicionando colunas
 df['juice'] = ((1/df['Odd_H_FT']) + (1/df['Odd_D_FT']) + (1/df['Odd_A_FT']))-1
 
 ## ODD mais correta
@@ -62,21 +61,16 @@ def calculate_exclude_current(group, window=6): # Ultimos 6 jogos
         window += 1
     return pd.Series(means, index=group.index)
 
-# Verifica se existem duplicatas nos índices e remove, se houver
-if df.index.duplicated().any():
-    df = df.loc[~df.index.duplicated()]
-    
 # Aplica a função ao DataFrame
 df['mptH6p'] = df.groupby('Home')['ptH'].apply(lambda x: calculate_exclude_current(x)).reset_index(level=0, drop=True)
 df['mptA6p'] = df.groupby('Away')['ptA'].apply(lambda x: calculate_exclude_current(x)).reset_index(level=0, drop=True)
 df['mxptH6p'] = df.groupby('Away')['xptH'].apply(lambda x: calculate_exclude_current(x)).reset_index(level=0, drop=True)
 df['mxptA6p'] = df.groupby('Away')['xptA'].apply(lambda x: calculate_exclude_current(x)).reset_index(level=0, drop=True)
 
+
 ## Lucro
 df['plH'] = df.apply(lambda row: (row['Odd_H_FT'] - 1) if row['Goals_H_FT'] > row['Goals_A_FT'] else -1, axis=1)
 df['plA'] = df.apply(lambda row: (row['Odd_A_FT'] - 1) if row['Goals_H_FT'] < row['Goals_A_FT'] else -1, axis=1)
-
-
 
 temporada_selecionada = st.session_state["temporada_selecionada"]
 st.sidebar.text(f"Temporada selecionada: {temporada_selecionada}")
