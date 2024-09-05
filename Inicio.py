@@ -11,19 +11,19 @@ home_page = st.Page(
 )
 
 gols_page = st.Page(
-    page="funcionalidades/2_Gols.py",
+    page="pages/2_Gols.py",
     title="Gols",
     icon=":material/sports_soccer:"
 )
 
 cantos_page = st.Page(
-    page="funcionalidades/3_Cantos.py",
+    page="pages/3_Cantos.py",
     title="Cantos",
     icon=":material/golf_course:"
 )
 
 chutes_page = st.Page(
-    page="funcionalidades/4_Chutes.py",
+    page="pages/4_Chutes.py",
     title="Chutes",
     icon=":material/footprint:"
 )
@@ -32,25 +32,25 @@ chutes_page = st.Page(
 #### ============== ###
 
 top_ligas_page = st.Page(
-    page="funcionalidades/5_Tops ligas.py",
+    page="pages/5_Tops ligas.py",
     title="Tops ligas",
     icon=":material/edit:"
 )
 
 top_teams_page = st.Page(
-    page="funcionalidades/6_Tops teams.py",
+    page="pages/6_Tops teams.py",
     title="Tops teams",
     icon=":material/edit:"
 )
 
 ranking_por_liga_page = st.Page(
-    page="funcionalidades/7_Ranking por liga.py",
+    page="pages/7_Ranking por liga.py",
     title="Ranking por liga",
     icon=":material/edit:"
 )
 
 jogos_do_dia_page = st.Page(
-    page="funcionalidades/8_Jogos do dia.py",
+    page="pages/8_Jogos do dia.py",
     title="Jogos do dia",
     icon=":material/edit:"
 )
