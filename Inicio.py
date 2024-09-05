@@ -66,7 +66,7 @@ pontos_x_realidade = st.Page(
 pg = st.navigation(
     {
         "Home": [home_page, gols_page, cantos_page, chutes_page],
-        "Análise": [top_ligas_page, top_teams_page, ranking_por_liga_page],
+        "Análise": [top_ligas_page, top_teams_page, ranking_por_liga_page, pontos_x_realidade],
         "Jogos do dia": [jogos_do_dia_page]
   }
 )
