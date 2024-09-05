@@ -69,7 +69,6 @@ pg = st.navigation(
 #st.logo("assets/logo.png")
 
 st.set_page_config(layout="wide", initial_sidebar_state="expanded") # Setar a pagina
-st.html('style.html')
 
 
 st.sidebar.markdown(

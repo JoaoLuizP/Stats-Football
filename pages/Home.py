@@ -31,7 +31,6 @@ engine_online = create_engine('postgresql://postgres:Santos010802.2311@woefully-
 
 hide_st_style = """
             <style>
-            #MainMenu {visibility: hidden;}
             .css-1rs6os {visibility: hidden;}
             .css-17ziqus {visibility: hidden;}
             """
