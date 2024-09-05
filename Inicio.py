@@ -60,12 +60,13 @@ jogos_do_dia_page = st.Page(
 pg = st.navigation(
     {
         "Home": [home_page, gols_page, cantos_page, chutes_page],
-        "Análise": [top_ligas_page, top_teams_page, ranking_por_liga_page, jogos_do_dia_page],
+        "Análise": [top_ligas_page, top_teams_page, ranking_por_liga_page],
+        "Jogos do dia": [jogos_do_dia_page]
   }
 )
 
 # --- SHARED ON ALL PAGES ---
-st.logo("assets/logo.png")
+#st.logo("assets/logo.png")
 
 st.set_page_config(layout="wide", initial_sidebar_state="expanded") # Setar a pagina
 st.html('style.html')
@@ -79,18 +80,6 @@ st.sidebar.markdown(
     """, 
     unsafe_allow_html=True
 )
-
-hide_st_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            header {visibility: hidden;}
-            .css-1rs6os {visibility: hidden;}
-            .css-17ziqus {visibility: hidden;}
-            """
-            
-st.markdown(hide_st_style,unsafe_allow_html=True)
-
 
 pg.run()
 

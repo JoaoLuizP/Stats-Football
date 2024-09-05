@@ -28,23 +28,10 @@ engine_online = create_engine('postgresql://postgres:Santos010802.2311@woefully-
 
 
 
-st.set_page_config(layout="wide", initial_sidebar_state="expanded") # Setar a pagina
-
-
-
-st.sidebar.markdown(
-    """
-    <div style="position: fixed; bottom: 0; width: 100%; text-align: left;">
-        Desenvolvido por <a href="https://joaoluizp.github.io/portfolio_jluizp/" target="_blank" style="color: #3399ff; text-decoration: none;">João Luiz Pinheiro</a>
-    </div>
-    """, 
-    unsafe_allow_html=True
-)
 
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
             header {visibility: hidden;}
             .css-1rs6os {visibility: hidden;}
             .css-17ziqus {visibility: hidden;}
