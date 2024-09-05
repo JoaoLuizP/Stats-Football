@@ -346,8 +346,8 @@ def load_data(temp):
 
     ## Exclui certas colunas
     df = df.drop(['Nº', 'Id_Jogo', 'Season', 'Odd_H_HT', 'Odd_D_HT', 'Odd_A_HT', 'Odd_Over05_HT', 'Odd_Under05_HT',
-                'Odd_Over15_HT', 'Odd_Under15_HT', 'Odd_Over25_HT', 'Odd_Under25_HT', 'Odd_H_FT',
-                'Odd_D_FT', 'Odd_A_FT', 'Odd_Over05_FT', 'Odd_Under05_FT', 'Odd_Over15_FT', 'Odd_Under15_FT',
+                'Odd_Over15_HT', 'Odd_Under15_HT', 'Odd_Over25_HT', 'Odd_Under25_HT',
+                'Odd_Over05_FT', 'Odd_Under05_FT', 'Odd_Over15_FT', 'Odd_Under15_FT',
                 'Odd_Over25_FT', 'Odd_Under25_FT', 'Odd_BTTS_Yes', 'Odd_BTTS_No', 'Odd_DC_1X',
                 'Odd_DC_12', 'Odd_DC_X2', 'PPG_Home_Pre', 'PPG_Away_Pre', 'PPG_Home',
                 'PPG_Away', 'XG_Home_Pre', 'XG_Away_Pre', 'XG_Total_Pre', 'Odd_Corners_H', 'Odd_Corners_D',
