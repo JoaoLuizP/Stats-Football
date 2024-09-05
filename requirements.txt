@@ -2,3 +2,4 @@ sqlalchemy
 plotly
 psycopg2-binary
 openpyxl
+matplotlib

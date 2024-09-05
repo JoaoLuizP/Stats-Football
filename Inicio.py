@@ -55,6 +55,12 @@ jogos_do_dia_page = st.Page(
     icon=":material/calendar_today:"
 )
 
+pontos_x_realidade = st.Page(
+    page="pages/9_Pontos x realidade.py",
+    title="Expect. de pontos x realidade",
+    icon=":material/calendar_today:"
+)
+
 
 # ---- NAVIGATION SETUP ----
 pg = st.navigation(
