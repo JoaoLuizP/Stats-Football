@@ -14,7 +14,7 @@ st.sidebar.markdown(
 
 data = st.session_state["df_fut"]
 
-temporada_selecionada = st.session_state["temporada_selecionada"]
+temporada_selecionada = st.sidebar.session_state["temporada_selecionada"]
 st.text(f"Temporada selecionada: {temporada_selecionada}")
 
 
