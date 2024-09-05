@@ -10,6 +10,7 @@ st.sidebar.markdown(
     """, 
     unsafe_allow_html=True
 )
+st.html('style.html')
 
 
 data = st.session_state["df_fut"]
@@ -27,7 +28,7 @@ temporada_selecionada = st.session_state["temporada_selecionada"]
 st.sidebar.text(f"Temporada selecionada: {temporada_selecionada}")
 
 league = sorted(data["League"].unique())
-leagues = st.sidebar.selectbox("Ligas", league, index=None, placeholder="Choose League") # Dropdown 
+leagues = st.selectbox("Ligas", league, index=None, placeholder="Choose League") # Dropdown 
 
 
 if leagues != None:
@@ -38,20 +39,24 @@ if leagues != None:
     )
 
     if opcao_0 == 'Gols':
-        new_opcao_gols = st.sidebar.selectbox(
+        new_opcao_gols = st.selectbox(
         'Linha desejada:',
         ['Over 0.5 HT', 'Over 1.5 FT', 'Over 2.5 FT', 'Over 3.5 FT'],
         index=None
         )
     elif opcao_0 == 'Cantos':
-        new_opcao_cantos = st.sidebar.selectbox(
+        new_opcao_cantos = st.selectbox(
         'Linha desejada:',
         ['Over 7.5', 'Over 8.5', 'Over 9.5', 'Over 10.5', 'Over 11.5', 'Over 12.5'],
         index=None
         )
     else:
         pass
+    
 
+    st.empty()
+    st.divider()
+    st.empty()
 
     df_league = data[data['League'] == leagues]
 

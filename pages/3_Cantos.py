@@ -10,6 +10,7 @@ st.sidebar.markdown(
     """, 
     unsafe_allow_html=True
 )
+st.html('style.html')
 
 
 col1, col2, col3 = st.columns([1, 1, 0.15])

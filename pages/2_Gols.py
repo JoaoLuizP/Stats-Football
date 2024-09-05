@@ -95,6 +95,7 @@ st.sidebar.markdown(
     """, 
     unsafe_allow_html=True
 )
+st.html('style.html')
 
 
 
@@ -158,7 +159,7 @@ else:
             fig = go.Figure(
                 data=[go.Bar(x=minutes_away[0], y=minutes_away[1])],
                 layout=dict(
-                    title='Percentual de Gols por Intervalo de Minutos',
+                    #title='Percentual de Gols por Intervalo de Minutos',
                     xaxis_title='Intervalo de Minutos',
                     yaxis_title='Percentual de Gols (%)',
                     # Adjust layout options as needed

@@ -65,6 +65,7 @@ st.sidebar.markdown(
     """, 
     unsafe_allow_html=True
 )
+st.html('style.html')
 
             
 data = st.session_state["df_fut"]
@@ -73,20 +74,20 @@ temporada_selecionada = st.session_state["temporada_selecionada"]
 st.sidebar.text(f"Temporada selecionada: {temporada_selecionada}")
 
 
-opcao_0 = st.sidebar.selectbox(
+opcao_0 = st.selectbox(
     'Mercado desejado:',
     ['Ambas Marcam', 'Cantos', 'Gols', 'ML'],
     index=None
 )
 
 if opcao_0 == 'Gols':
-    new_opcao_gols = st.sidebar.selectbox(
+    new_opcao_gols = st.selectbox(
     'Linha desejada:',
     ['Over 0.5 HT', 'Over 1.5 FT', 'Over 2.5 FT', 'Over 3.5 FT'],
     index=None
     )
 elif opcao_0 == 'Cantos':
-    new_opcao_cantos = st.sidebar.selectbox(
+    new_opcao_cantos = st.selectbox(
     'Linha desejada:',
     ['Over 7.5', 'Over 8.5', 'Over 9.5', 'Over 10.5', 'Over 11.5', 'Over 12.5'],
     index=None
@@ -95,23 +96,29 @@ else:
     pass
 
 
-opcao_1 = st.sidebar.selectbox(
+opcao_1 = st.selectbox(
     'Total da lista:',
     [5, 10, 15, 20],
     index=1  # O índice 1 corresponde à segunda opção (10)
 )
 
-opcao_2 = st.sidebar.selectbox(
+opcao_2 = st.selectbox(
     'Minimos de jogos na temporada',
     [5, 10, 15, 20],
     index=1
 )
 
-opcao_3 = st.sidebar.selectbox(
+opcao_3 = st.selectbox(
     'Minimos de jogos em casa ou fora de casa:',
     [5, 10, 15, 20],
     index=0
 )
+
+
+
+st.empty()
+st.divider()
+st.empty()
 
 
 col1, col2, col3 = st.columns([1, 1, 0.12])
