@@ -18,6 +18,9 @@ data = st.session_state["df_fut"]
 col1, col2, col3 = st.columns([1, 1, 0.12])
 with col1:
     st.markdown(f"### Estatistica dos times na liga 📊 ")
+    st.empty()
+    st.divider()
+    st.empty()
 #with col3:
 #    if st.button("Home"):
 #        st.switch_page("D:\\João\\Python projects\\futebol\\st_fut\\Home.py")
@@ -32,7 +35,7 @@ leagues = st.selectbox("Ligas", league, index=None, placeholder="Choose League")
 
 
 if leagues != None:
-    opcao_0 = st.sidebar.selectbox(
+    opcao_0 = st.selectbox(
         'Mercado desejado:',
         ['Ambas Marcam', 'Cantos', 'Gols', 'ML'],
         index=None
@@ -53,10 +56,6 @@ if leagues != None:
     else:
         pass
     
-
-    st.empty()
-    st.divider()
-    st.empty()
 
     df_league = data[data['League'] == leagues]
 
