@@ -62,6 +62,10 @@ def calculate_exclude_current(group, window=6): # Ultimos 6 jogos
         window += 1
     return pd.Series(means, index=group.index)
 
+# Verifica se existem duplicatas nos índices e remove, se houver
+if df.index.duplicated().any():
+    df = df.loc[~df.index.duplicated()]
+    
 # Aplica a função ao DataFrame
 df['mptH6p'] = df.groupby('Home')['ptH'].apply(lambda x: calculate_exclude_current(x)).reset_index(level=0, drop=True)
 df['mptA6p'] = df.groupby('Away')['ptA'].apply(lambda x: calculate_exclude_current(x)).reset_index(level=0, drop=True)
