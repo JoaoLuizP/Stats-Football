@@ -14,43 +14,67 @@
     }
 
     .st-emotion-cache-q49buc {
-    font-family: 'Nome da Fonte', sans-serif; /* Substitua 'Nome da Fonte' pela fonte que deseja usar */
+    font-family: 'math', monospace; /* Substitua 'Nome da Fonte' pela fonte que deseja usar */
     font-size: 16px; /* Ajuste o tamanho da fonte conforme necessário */
     color: black;
     }
 
     /* Adapted from https://startbootstrap.com/theme/sb-admin-2 */
     div[data-testid="stMetric"] {
-        background-color: #FFFFFF;
-        border: 0.1px #CCCCCC;
-        padding: 1em 2em;
-        border-radius: 5px;
-        box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    background-color: #FFFFFF;
+    border: 0.05px #CCCCCC;
+    /*padding: 0.5em; */
+    border-radius: 3px;
+    box-shadow: 0 0.1rem 0.75rem 0 rgba(58, 59, 69, 0.15);
+    max-width: 235px; /* Adjust as needed */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically within the box */
+    text-align: center; /* Center content horizontally (optional) */
+    }
+
+    label[data-testid="stMetricLabel"] p,
+    div[data-testid="stMetricValue"] {
+    font-weight: bold; /* Make both label and value bold */
+    font-family: 'math', monospace;
     }
 
     label[data-testid="stMetricLabel"] p {
-        font-size: 1em;
+    font-size: 0.8em; /* Adjust font size as desired */
+    margin: 0; /* Remove default margin for better alignment */
     }
 
     div[data-testid="stMetricValue"] {
-        font-size: 1.3em;
-        font-weight: 1000;
-        color: #174C4F;
+    font-size: 1em;
+    color: #174C4F;
+    /* Margin-left: auto; is no longer needed for centering */
     }
 
+    /* Other styles (assuming they don't affect stMetric) */
+
     div[data-testid="stVerticalBlock"]:has(> div > .stHtml > .indicator_geral) {
-        & div[data-testid="stMetric"] {
-            border-left: 1rem solid black;
-        }
+    & div[data-testid="stMetric"] {
+        border-left: 1rem solid black;
+    }
     }
 
     div[data-testid="stDataFrameResizable"] {
-        display: flex;
-        justify-content: center;
-        text-align: center; 
-        font-weight: bold;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
     }
 
+    .st-emotion-cache-183lzff {
+    font-family: cursive;
+    white-space: normal;
+    font-size: 15px;
+    overflow-x: overlay;
+    }   
+    .modebar modebar--hover ease-bg {
+    display: none;
+    }
 
 </style>
 

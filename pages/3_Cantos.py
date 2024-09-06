@@ -29,26 +29,36 @@ else:
 
     if st.session_state["time_a"] != None and st.session_state["time_b"] != None:
 
-        st.empty()
+        st.write('')
         tab1, tab2 = st.tabs([f"{st.session_state["time_a"]}", f"{st.session_state["time_b"]}"]) 
 
         with tab1:
-            col1, col2, col3, col3_1 = st.columns([0.6, 0.3, 0.3, 0.3])
-            col1.bar_chart(df_filtered2, x='Away', y='Corners_H_FT')
-            #col2.metric(f"Total de Gols Marcados no 1º Tempo - {time_a}", df_filtered2['Goals_H_HT'].sum())
-            #col3.metric(f"Total de Gols Sofridos no 1º Tempo - {time_a}", df_filtered2['Goals_A_HT'].sum())
-            col2.metric(f"Média de cantos feitos", round(((df_filtered2['Corners_H_FT'].sum())/len(df_filtered2)),2))
-            col3.metric(f"Média de cantos sofridos", round(((df_filtered2['Corners_A_FT'].sum())/len(df_filtered2)),2))
-            col3_1.metric(f"Média de cantos geral", round(((df_filtered2['TotalCorners_FT'].sum())/len(df_filtered2)),2))
+            st.write('')
+            st.write('')
+            st.write('')
+            col0, col1, col2, col3, col4 = st.columns([0.15, 0.4, 0.4, 0.4, 1.5])
+            col0.text('Em casa: ')
+            col1.metric(f"Média de cantos feitos", round(((df_filtered2['Corners_H_FT'].sum())/len(df_filtered2)),2))
+            col2.metric(f"Média de cantos sofridos", round(((df_filtered2['Corners_A_FT'].sum())/len(df_filtered2)),2))
+            col3.metric(f"Média de cantos geral", round(((df_filtered2['TotalCorners_FT'].sum())/len(df_filtered2)),2))
+            col4.area_chart(df_filtered2, x='Away', y='Corners_H_FT', x_label="Adversario", y_label="Corners Feitos")
+
+
+            #df_filtered2
+
 
         with tab2:
-            col1, col2, col3, col3_1 = st.columns([0.6, 0.3, 0.3, 0.3])
-            col1.bar_chart(df_filtered3, x='Home', y='Corners_A_FT')
+            st.write('')
+            st.write('')
+            st.write('')
+            col0, col1, col2, col3, col4 = st.columns([0.15, 0.4, 0.4, 0.4, 1.5])
+            col0.text('Fora de casa: ')
             #col2.metric(f"Total de Gols Marcados no 1º Tempo - {time_a}", df_filtered2['Goals_H_HT'].sum())
             #col3.metric(f"Total de Gols Sofridos no 1º Tempo - {time_a}", df_filtered2['Goals_A_HT'].sum())
-            col2.metric(f"Média de cantos feitos", round(((df_filtered3['Corners_A_FT'].sum())/len(df_filtered3)),2))
-            col3.metric(f"Média de cantos sofridos", round(((df_filtered3['Corners_H_FT'].sum())/len(df_filtered3)),2))
-            col3_1.metric(f"Média de cantos geral", round(((df_filtered3['TotalCorners_FT'].sum())/len(df_filtered3)),2))
+            col1.metric(f"Média de cantos feitos", round(((df_filtered3['Corners_A_FT'].sum())/len(df_filtered3)),2))
+            col2.metric(f"Média de cantos sofridos", round(((df_filtered3['Corners_H_FT'].sum())/len(df_filtered3)),2))
+            col3.metric(f"Média de cantos geral", round(((df_filtered3['TotalCorners_FT'].sum())/len(df_filtered3)),2))
+            col4.area_chart(df_filtered3, x='Home', y='Corners_A_FT', x_label="Adversario", y_label="Corners Feitos")
 
         
     else:

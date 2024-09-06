@@ -116,10 +116,11 @@ else:
 
     if st.session_state["time_a"] != None and st.session_state["time_b"] != None:
 
-        st.empty()
+        st.write('')
         tab1, tab2 = st.tabs([f"{st.session_state["time_a"]}", f"{st.session_state["time_b"]}"]) 
 
         with tab1:
+            st.write('')
             ### Time HOME
             minutes_home = minutes_gols(dataframe=df_filtered2['Goals_H_Minutes'])
             # Plotando o gráfico
@@ -133,25 +134,40 @@ else:
                     # Adjust layout options as needed
                 )
             )
-            col1, col2, col3, col3_1 = st.columns([0.4, 0.2, 0.1, 0.3])
-            col1.bar_chart(df_filtered2, x='Away', y='Goals_H_HT')
+            
+            col1, col2, col3, col3_1, col3_2, col3_3 = st.columns([0.3, 0.5, 0.5, 0.5, 0.5, 0.5])
+            st.write('')
+            st.write('')
+            st.write('')
+
+            col1.text('Dados HT:')
             #col2.metric(f"Total de Gols Marcados no 1º Tempo - {time_a}", df_filtered2['Goals_H_HT'].sum())
             #col3.metric(f"Total de Gols Sofridos no 1º Tempo - {time_a}", df_filtered2['Goals_A_HT'].sum())
-            col2.metric(f"Média de gols Marcados no 1º Tempo", round(((df_filtered2['Goals_H_HT'].sum())/len(df_filtered2)),2))
+            col2.metric(f"Média de gols Marcados HT", round(((df_filtered2['Goals_H_HT'].sum())/len(df_filtered2)),2))
             col3.metric(f"% de Over 0.5HT", round(df_filtered2['Over05_HT'].mean() * 100, 2))
-            col3_1.plotly_chart(fig, use_container_width=False)
+            #col3_1.bar_chart(df_filtered2, x='Away', y='Goals_H_HT', y_label="Gols marcados HT", stack='center')
+            
+            
+            #col3_1.plotly_chart(fig, use_container_width=False)
 
-            col5, col6, col7, col8, col9, col9_1 = st.columns([0.4, 0.25, 0.15, 0.15, 0.15, 0.15])
-            col5.bar_chart(df_filtered2, x='Away', y='TotalGoals_FT')
-            col6.metric(f"Média de gols Marcados", round(((df_filtered2['Goals_H_FT'].sum())/len(df_filtered2)),2))
-            col7.metric(f"% de Over 1.5FT", round(df_filtered2['Over15_FT'].mean() * 100, 2))
-            col8.metric(f"% de Over 2.5FT", round(df_filtered2['Over25_FT'].mean() * 100, 2))
-            col9.metric(f"% de Over 3.5FT", round(df_filtered2['Over35_FT'].mean() * 100, 2))
-            col9_1.metric(f"% do Ambas", round(df_filtered2['BTTS'].mean() * 100, 2))
+            col4, col5, col6, col7, col8, col9 = st.columns([0.3, 0.5, 0.5, 0.5, 0.5, 0.5])
+            col4.text('Dados FT:')
+            col5.metric(f"Média de gols Marcados", round(((df_filtered2['Goals_H_FT'].sum())/len(df_filtered2)),2))
+            col6.metric(f"% de Over 1.5FT", round(df_filtered2['Over15_FT'].mean() * 100, 2))
+            col7.metric(f"% de Over 2.5FT", round(df_filtered2['Over25_FT'].mean() * 100, 2))
+            col8.metric(f"% de Over 3.5FT", round(df_filtered2['Over35_FT'].mean() * 100, 2))
+            col9.metric(f"% do Ambas", round(df_filtered2['BTTS'].mean() * 100, 2))
+
+
+            
+            #col10.bar_chart(df_filtered2, x='Away', y='TotalGoals_FT', y_label="Gols marcados", stack='center')
+            st.write('')
+            st.plotly_chart(fig, use_container_width=True)
 
 
 
         with tab2:
+            st.write('')
             ### Time AWAY
             minutes_away = minutes_gols(dataframe=df_filtered3['Goals_A_Minutes'])
             # Plotando o gráfico
@@ -159,30 +175,37 @@ else:
             fig = go.Figure(
                 data=[go.Bar(x=minutes_away[0], y=minutes_away[1])],
                 layout=dict(
-                    #title='Percentual de Gols por Intervalo de Minutos',
+                    title='Percentual de Gols por Intervalo de Minutos',
                     xaxis_title='Intervalo de Minutos',
                     yaxis_title='Percentual de Gols (%)',
                     # Adjust layout options as needed
                 )
             )
 
-            col10, col11, col12, col12_1 = st.columns([0.4, 0.2, 0.1, 0.3])
-            col10.bar_chart(df_filtered3, x='Home', y='Goals_A_HT')
+            col1, col2, col3, col3_1, col3_2, col3_3 = st.columns([0.3, 0.5, 0.5, 0.5, 0.5, 0.5])
+            st.write('')
+            st.write('')
+            st.write('')
+            #col10.bar_chart(df_filtered3, x='Home', y='Goals_A_HT')
             #col6.metric(f"Total de Gols Marcados no 1º Tempo - {time_b}", df_filtered3['Goals_A_HT'].sum())
             #col7.metric(f"Média de gols Marcados no 1º Tempo - {time_b}", ((df_filtered3['Goals_A_HT'].sum())/len(df_filtered3)).round(2))
-            col11.metric(f"Média de gols Marcados no 1º Tempo", round(((df_filtered3['Goals_A_HT'].sum())/len(df_filtered3)),2))
-            col12.metric(f"% de Over 0.5HT", round(df_filtered3['Over05_HT'].mean() * 100, 2))
-            col12_1.plotly_chart(fig, use_container_width=False)
-
-
-            col13, col14, col15, col16, col17, col17_1 = st.columns([0.4, 0.25, 0.15, 0.15, 0.15, 0.15])
-            col13.bar_chart(df_filtered3, x='Home', y='TotalGoals_FT')
-            col14.metric(f"Média de gols Marcados", round(((df_filtered3['Goals_A_FT'].sum())/len(df_filtered3   )),2))
-            col15.metric(f"% de Over 1.5FT", round(df_filtered3['Over15_FT'].mean() * 100, 2))
-            col16.metric(f"% de Over 2.5FT", round(df_filtered3['Over25_FT'].mean() * 100, 2))
-            col17.metric(f"% de Over 3.5FT", round(df_filtered3['Over35_FT'].mean() * 100, 2))
-            col17_1.metric(f"% do Ambas", round(df_filtered3['BTTS'].mean() * 100, 2))
+            col1.text('Dados HT:')
+            col2.metric(f"Média de gols Marcados HT", round(((df_filtered3['Goals_A_HT'].sum())/len(df_filtered3)),2))
+            col3.metric(f"% de Over 0.5HT", round(df_filtered3['Over05_HT'].mean() * 100, 2))
             
+
+
+            col4, col5, col6, col7, col8, col9 = st.columns([0.3, 0.5, 0.5, 0.5, 0.5, 0.5])
+            col4.text('Dados FT:')
+            #col13.bar_chart(df_filtered3, x='Home', y='TotalGoals_FT')
+            col5.metric(f"Média de gols Marcados", round(((df_filtered3['Goals_A_FT'].sum())/len(df_filtered3   )),2))
+            col6.metric(f"% de Over 1.5FT", round(df_filtered3['Over15_FT'].mean() * 100, 2))
+            col7.metric(f"% de Over 2.5FT", round(df_filtered3['Over25_FT'].mean() * 100, 2))
+            col8.metric(f"% de Over 3.5FT", round(df_filtered3['Over35_FT'].mean() * 100, 2))
+            col9.metric(f"% do Ambas", round(df_filtered3['BTTS'].mean() * 100, 2))
+            
+            st.write('')
+            st.plotly_chart(fig, use_container_width=True)
 
 
     else:

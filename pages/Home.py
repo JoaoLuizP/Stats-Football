@@ -342,7 +342,7 @@ def load_data(temp):
                 'Odd_Corners_Over105', 'Odd_Corners_Over115'], axis=1)
 
     ## Mudar o formato da data
-    # Converter a coluna 'Data' para o tipo datetime
+    # Converter a coluna 'Data' para o tipo 
     df['Date'] = pd.to_datetime(df['Date'])
     # Formatar a coluna 'Data' para o formato desejado
     df['Date'] = df['Date'].dt.strftime('%d/%m/%Y %H:%M')
@@ -454,7 +454,9 @@ if temporada != None:
                 avg_gols_confronto = round((avg_home + avg_away), 2)
                 avg_cantos_confronto = round((avg_cantos_home + avg_cantos_away), 2)
 
-                st.header(f'Probabilidades do confronto {time_a} X {time_b}')
+                #st.divider()
+                #   st.empty()
+                st.subheader(f'Probabilidades do confronto {time_a} X {time_b}', divider="rainbow")
                 st.markdown(f'**Expecativa de gols para o confronto:** {avg_gols_confronto}')
                 st.markdown(f'**Expecativa de cantos para o confronto:** {avg_cantos_confronto}')
                 col1, col2, col3, col4, col5 = st.columns(5)
@@ -465,7 +467,7 @@ if temporada != None:
                 col5.markdown(f'**% Ambas & 2.5:** {prob_confronto[4]}%')
 
                 # Selecionando as colunas desejadas
-                st.divider()
+                #st.divider()
 
                 col1, col2 = st.columns([1, 0.06])
                 on = col1.toggle("Show last games")
@@ -552,7 +554,7 @@ if temporada != None:
                     tab1, tab2, tab3 = st.tabs([f"{time_a}", f"{time_b}", f"H2H"]) 
                     with tab1:
                         tab1.text(f'Last {option_last_games} games')
-                        col1, col2, col3, col4 = st.columns([1, 0.5, 0.5, 0.2])
+                        col1, col2, col3, col4 = st.columns([1, 0.4, 0.4, 0.4])
                         col1.dataframe(df_filtrado_home[['Date', 'Confronto', 'Placar', 'Total de escanteios', 'Time com mais escanteios']], hide_index=True)
                         col2.metric(f"**Média de gols Marcados no 1ºT**", round(((df_filtrado_home['Goals_H_HT'].sum())/len(df_filtrado_home)),2))
                         col3.metric(f"**Média de gols sofridos no 1ºT**", round(((df_filtrado_home['Goals_A_HT'].sum())/len(df_filtrado_home)),2))
@@ -560,14 +562,14 @@ if temporada != None:
 
                         
 
-                        col1, col2, col3, col4 = st.columns([1, 0.5, 0.5, 0.2])
+                        col1, col2, col3, col4 = st.columns([1, 0.4, 0.4, 0.4])
                         col1.text(f"Nos ultimos {option_last_games} jogos, o {time_a} venceu {round(df_filtrado_home['Win_H'].mean() * 100, 2)}% dos jogos em casa")
                         col2.metric(f"**Média de gols Marcados**", round(((df_filtrado_home['Goals_H_FT'].sum())/len(df_filtrado_home)),2))
                         col3.metric(f"**Média de gols Sofridos**", round(((df_filtrado_home['Goals_A_FT'].sum())/len(df_filtrado_home)),2))
                         col4.metric(f"**% do Ambas**", round(df_filtrado_home['BTTS'].mean() * 100, 2))
                         
 
-                        col1, col2, col3, col4 = st.columns([1, 0.5, 0.5, 0.2])
+                        col1, col2, col3, col4 = st.columns([1, 0.4, 0.4, 0.4])
                         col2.metric(f"**% de Over 1.5FT**", round(df_filtrado_home['Over15_FT'].mean() * 100, 2))
                         col3.metric(f"**% de Over 2.5FT**", round(df_filtrado_home['Over25_FT'].mean() * 100, 2))
                         col4.metric(f"**% de Over 3.5FT**", round(df_filtrado_home['Over35_FT'].mean() * 100, 2))
@@ -575,37 +577,37 @@ if temporada != None:
 
                     with tab2:
                         tab2.text(f'Last {option_last_games} games')
-                        col1, col2, col3, col4 = st.columns([1, 0.5, 0.5, 0.2])
+                        col1, col2, col3, col4 = st.columns([1, 0.4, 0.4, 0.4])
                         col1.dataframe(df_filtrado_away[['Date', 'Confronto', 'Placar', 'Total de escanteios', 'Time com mais escanteios']], hide_index=True)
                         col2.metric(f"**Média de gols Marcados no 1ºT**", round(((df_filtrado_away['Goals_A_HT'].sum())/len(df_filtrado_away)),2))
                         col3.metric(f"**Média de gols sofridos no 1ºT**", round(((df_filtrado_away['Goals_H_HT'].sum())/len(df_filtrado_away)),2))
                         col4.metric(f"**% de Over 0.5HT**", round(df_filtrado_away['Over05_HT'].mean() * 100, 2))
 
-                        col1, col2, col3, col4 = st.columns([1, 0.5, 0.5, 0.2])
+                        col1, col2, col3, col4 = st.columns([1, 0.4, 0.4, 0.4])
                         col1.text(f"Nos ultimos {option_last_games} jogos, o {time_b} venceu {round(df_filtrado_away['Win_A'].mean() * 100, 2)}% fora de casa")
                         col2.metric(f"**Média de gols Marcados**", round(((df_filtrado_away['Goals_A_FT'].sum())/len(df_filtrado_away)),2))
                         col3.metric(f"**Média de gols Sofridos**", round(((df_filtrado_away['Goals_H_FT'].sum())/len(df_filtrado_away)),2))
                         col4.metric(f"**% do Ambas**", round(df_filtrado_away['BTTS'].mean() * 100, 2))
 
 
-                        col1, col2, col3, col4 = st.columns([1, 0.5, 0.5, 0.2])
+                        col1, col2, col3, col4 = st.columns([1, 0.4, 0.4, 0.4])
                         col2.metric(f"**% de Over 1.5FT**", round(df_filtrado_away['Over15_FT'].mean() * 100, 2))
                         col3.metric(f"**% de Over 2.5FT**", round(df_filtrado_away['Over25_FT'].mean() * 100, 2))
                         col4.metric(f"**% de Over 3.5FT**", round(df_filtrado_away['Over35_FT'].mean() * 100, 2))
 
                     with tab3:
-                        col1, col2, col3, col4 = st.columns([1, 0.5, 0.5, 0.5])
+                        col1, col2, col3, col4 = st.columns([1, 0.4, 0.4, 0.4])
                         col1.text(f'Last {len(df_filtrado_historico)}')
                         col4.info('History may be incomplete', icon="ℹ️")
                         
-                        col1, col2, col3, col4 = st.columns([1, 0.5, 0.5, 0.2])
+                        col1, col2, col3, col4 = st.columns([1, 0.4, 0.4, 0.4])
                         col1.dataframe(df_filtrado_historico[['Date', 'Confronto', 'Placar', 'Total de escanteios', 'Time com mais escanteios']], hide_index=True)
                         col2.metric(f"**Média de gols Marcados no 1ºT**", round((((df_filtrado_historico['Goals_A_HT'].sum()) + (df_filtrado_historico['Goals_H_HT'].sum()))/len(df_filtrado_historico)),2),)
                         col3.metric(f"**Média de gols Marcados**", round((((df_filtrado_historico['Goals_A_FT'].sum()) + (df_filtrado_historico['Goals_H_FT'].sum()))/len(df_filtrado_historico)),2))
                         col4.metric(f"**% de Over 0.5HT**", round(df_filtrado_historico['Over05_HT'].mean() * 100, 2))
 
 
-                        col1, col2, col3, col4, col5 = st.columns([1, 0.3, 0.3, 0.3, 0.3])
+                        col1, col2, col3, col4, col5 = st.columns([1, 0.4, 0.4, 0.4, 0.4])
                         col1.text(f"Nos últimos {len(df_filtrado_historico)} jogos, {time_a} {vitorias_home}x{vitorias_away} {time_b}. Os outros {empates} jogos \nterminaram empatados.")
                         col2.metric(f"**% do Ambas**", round(df_filtrado_historico['BTTS'].mean() * 100, 2))
                         col3.metric(f"**% de Over 1.5FT**", round(df_filtrado_historico['Over15_FT'].mean() * 100, 2))
@@ -634,7 +636,3 @@ if temporada != None:
             #    st.switch_page("D:\\João\\Python projects\\futebol\\st_fut\\pages\\4_⚽︎_Chutes.py")
 
 
-    else:
-        st.toast('Select teams', icon=":material/report:")
-        sleep(5)
-        st.toast('Select teams', icon=":material/report:")
