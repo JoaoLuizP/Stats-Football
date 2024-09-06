@@ -144,73 +144,79 @@ st.sidebar.markdown(
 st.html('style.html')
 
 
-df = st.session_state["df_fut"]
-
-#df 
-
-
-temporada_selecionada = st.session_state["temporada_selecionada"]
-st.sidebar.text(f"Temporada selecionada: {temporada_selecionada}")
-
-
-# Ligas
-league = sorted(df["League"].unique())
-leagues = st.selectbox("League", league, index=None, placeholder="Choose League") # Dropdown 
-df_filtered = df[df["League"] == leagues]
-df_filtered = new_columns(df=df_filtered)
-
-# Times
-time_liga = sorted(df_filtered["Home"].unique())
-time_a = st.selectbox("Team", time_liga, index=None, placeholder="Choose Team")
-
-if time_a != None:
-
-
-    df_time_home = df_filtered[df_filtered["Home"] == time_a]
-    df_time_away = df_filtered[df_filtered["Away"] == time_a]
-
-    #df_time_home_new_columns = new_columns(df=df_time_home)
-
-    tab1, tab2 = st.tabs(["Em casa", "Fora de casa"]) 
-
-    with tab1:
-        #df_time_home
-        grafico_home = graphics(base=df_time_home, realidade="mptH6p", expecativa="mxptH6p", acumulado="plH", casa_fora="Home")
-
-        ## Calculos uteis
-        odd_media_home = df_time_home['Odd_H_FT'].mean()
-        winrate_home = round((df_time_home['Winrate_H'].sum() / len(df_time_home)) * 100, 2)
-
-
-        col11, col21, col31, col41 = st.columns([0.5, 1, 1, 1])
-        col21.metric(f"**Jogos**", len(df_time_home))
-        col31.metric(f"**ODD média**", round(odd_media_home, 2))
-        col41.metric(f"**Winrate**", f'{winrate_home} %')
-
-        col111, col211, col311 = st.columns([1, 0.2, 0.2])
-        col111.plotly_chart(grafico_home)
+if 'df_fut' not in st.session_state:
+    st.toast('Return to the "Inicio" tab to update the database and return to this page again.', icon=":material/report:")
     
-
-
-    with tab2:
-        grafico_away = graphics(base=df_time_away, realidade="mptA6p", expecativa="mxptA6p", acumulado="plA", casa_fora="Away")
-
-        ## Calculos uteis
-        odd_media_away = df_time_away['Odd_A_FT'].mean()
-        winrate_away = round((df_time_away['Winrate_A'].sum() / len(df_time_away)) * 100, 2)
-
-        col11, col21, col31, col41 = st.columns([0.5, 1, 1, 1])
-        col21.metric(f"**Jogos**", len(df_time_away))
-        col31.metric(f"**ODD média**", round(odd_media_away, 2))
-        col41.metric(f"**Winrate**", f'{winrate_away} %')
-
-        col111, col211, col311 = st.columns([1, 0.2, 0.2])
-        col111.plotly_chart(grafico_away)
-
-
-
+    pass
 
 else:
-    st.toast('Select a team.', icon=":material/report:")
-    sleep(5)
-    st.toast('Select a team.', icon=":material/report:")
+    df = st.session_state["df_fut"]
+
+    #df 
+
+
+    temporada_selecionada = st.session_state["temporada_selecionada"]
+    st.sidebar.text(f"Temporada selecionada: {temporada_selecionada}")
+
+
+    # Ligas
+    league = sorted(df["League"].unique())
+    leagues = st.selectbox("League", league, index=None, placeholder="Choose League") # Dropdown 
+    df_filtered = df[df["League"] == leagues]
+    df_filtered = new_columns(df=df_filtered)
+
+    # Times
+    time_liga = sorted(df_filtered["Home"].unique())
+    time_a = st.selectbox("Team", time_liga, index=None, placeholder="Choose Team")
+
+    if time_a != None:
+
+
+        df_time_home = df_filtered[df_filtered["Home"] == time_a]
+        df_time_away = df_filtered[df_filtered["Away"] == time_a]
+
+        #df_time_home_new_columns = new_columns(df=df_time_home)
+
+        tab1, tab2 = st.tabs(["Em casa", "Fora de casa"]) 
+
+        with tab1:
+            #df_time_home
+            grafico_home = graphics(base=df_time_home, realidade="mptH6p", expecativa="mxptH6p", acumulado="plH", casa_fora="Home")
+
+            ## Calculos uteis
+            odd_media_home = df_time_home['Odd_H_FT'].mean()
+            winrate_home = round((df_time_home['Winrate_H'].sum() / len(df_time_home)) * 100, 2)
+
+
+            col11, col21, col31, col41 = st.columns([0.5, 1, 1, 1])
+            col21.metric(f"**Jogos**", len(df_time_home))
+            col31.metric(f"**ODD média**", round(odd_media_home, 2))
+            col41.metric(f"**Winrate**", f'{winrate_home} %')
+
+            col111, col211, col311 = st.columns([1, 0.2, 0.2])
+            col111.plotly_chart(grafico_home)
+        
+
+
+        with tab2:
+            grafico_away = graphics(base=df_time_away, realidade="mptA6p", expecativa="mxptA6p", acumulado="plA", casa_fora="Away")
+
+            ## Calculos uteis
+            odd_media_away = df_time_away['Odd_A_FT'].mean()
+            winrate_away = round((df_time_away['Winrate_A'].sum() / len(df_time_away)) * 100, 2)
+
+            col11, col21, col31, col41 = st.columns([0.5, 1, 1, 1])
+            col21.metric(f"**Jogos**", len(df_time_away))
+            col31.metric(f"**ODD média**", round(odd_media_away, 2))
+            col41.metric(f"**Winrate**", f'{winrate_away} %')
+
+            col111, col211, col311 = st.columns([1, 0.2, 0.2])
+            col111.plotly_chart(grafico_away)
+
+
+
+
+    else:
+        st.toast('Select a team.', icon=":material/report:")
+        sleep(5)
+        st.toast('Select a team.', icon=":material/report:")
