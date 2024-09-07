@@ -368,6 +368,12 @@ def load_data(temp):
     ## ML
     df['Winrate_H'] = df.apply(lambda row: 1 if (row['Goals_H_FT'] > row['Goals_A_FT']) else 0, axis=1)
     df['Winrate_A'] = df.apply(lambda row: 1 if (row['Goals_H_FT'] < row['Goals_A_FT']) else 0, axis=1)
+    df['Resultado_H'] = df.apply(lambda row: 'W' if (row['Goals_H_FT'] > row['Goals_A_FT']) 
+                          else 'L' if (row['Goals_H_FT'] < row['Goals_A_FT']) 
+                          else 'D', axis=1)
+    df['Resultado_A'] = df.apply(lambda row: 'W' if (row['Goals_H_FT'] < row['Goals_A_FT']) 
+                        else 'L' if (row['Goals_H_FT'] > row['Goals_A_FT']) 
+                        else 'D', axis=1)
 
 
     return df

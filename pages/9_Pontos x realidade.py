@@ -145,7 +145,7 @@ st.html('style.html')
 
 
 if 'df_fut' not in st.session_state:
-    st.toast('Return to the "Inicio" tab to update the database and return to this page again.', icon=":material/report:")
+    st.toast('Return to the "Selecionar-Confronto" tab to update the database and return to this page again.', icon=":material/report:")
     
     pass
 
@@ -177,6 +177,7 @@ else:
 
         #df_time_home_new_columns = new_columns(df=df_time_home)
 
+        st.write('')
         tab1, tab2 = st.tabs(["Em casa", "Fora de casa"]) 
 
         with tab1:

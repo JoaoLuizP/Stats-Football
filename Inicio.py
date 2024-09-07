@@ -61,12 +61,18 @@ pontos_x_realidade = st.Page(
     icon=":material/stacked_line_chart:"
 )
 
+resumo_ligas = st.Page(
+    page="pages/10_Resumo ligas.py",
+    title="Ligas",
+    icon=":material/analytics:"
+)
 
 # ---- NAVIGATION SETUP ----
 pg = st.navigation(
     {
         "Home - Confronto": [home_page, gols_page, cantos_page, chutes_page],
-        "Análise": [top_ligas_page, top_teams_page, ranking_por_liga_page, pontos_x_realidade],
+        "Análise": [resumo_ligas, pontos_x_realidade],
+        "Ranking": [top_ligas_page, top_teams_page, ranking_por_liga_page],
         "Jogos do dia": [jogos_do_dia_page]
   }
 )
