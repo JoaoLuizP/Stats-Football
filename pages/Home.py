@@ -342,10 +342,8 @@ def load_data(temp):
                 'Odd_Corners_Over105', 'Odd_Corners_Over115'], axis=1)
 
     ## Mudar o formato da data
-    # Converter a coluna 'Data' para o tipo 
-    df['Date'] = pd.to_datetime(df['Date'])
-    # Formatar a coluna 'Data' para o formato desejado
-    df['Date'] = df['Date'].dt.strftime('%d/%m/%Y %H:%M')
+    df['Date'] = pd.to_datetime(df['Date'])  # Converter a coluna 'Data' para o tipo  
+    df['Date'] = df['Date'].dt.strftime('%d/%m/%Y %H:%M') # Formatar a coluna 'Data' para o formato desejado
 
     ## GOLS
     df['Over05_HT'] = df.apply(lambda row: 1 if (row['TotalGoals_HT'] > 0) else 0, axis=1)
