@@ -233,9 +233,23 @@ else:
             }, inplace=True)
 
             classificacao.index.name = ''
+            
+            if len(classificacao) == 20:
+                height = 738
+            elif len(classificacao) == 10:
+                height = 388
+            elif len(classificacao) == 12:
+                height = 458
+            elif len(classificacao) == 16:
+                height = 598
+            elif len(classificacao) == 18:
+                height = 668
+            elif len(classificacao) == 19:
+                height = 704
+            else:
+                height = 738
 
-                                
-            st.dataframe(classificacao[['Time', 'MP', 'V', 'E', 'D', 'GP', 'GA', 'SG', 'PTS', 'Last 5']].head(20), hide_index=False, width=1500, height=738, use_container_width=True)
+            st.dataframe(classificacao[['Time', 'MP', 'V', 'E', 'D', 'GP', 'GA', 'SG', 'PTS', 'Last 5']].head(20), hide_index=False, width=1500, height=height, use_container_width=True)
     
 
         with tab2:
@@ -294,8 +308,23 @@ else:
 
             classificacao.index.name = ''
 
+            if len(classificacao) == 20:
+                height = 738
+            elif len(classificacao) == 10:
+                height = 388
+            elif len(classificacao) == 12:
+                height = 458
+            elif len(classificacao) == 16:
+                height = 598
+            elif len(classificacao) == 18:
+                height = 668
+            elif len(classificacao) == 19:
+                height = 704
+            else:
+                height = 738
+
                                 
-            st.dataframe(classificacao[['Time', 'MP', 'V', 'E', 'D', 'GP', 'GA', 'SG', 'PTS', 'Last 5']].head(20), hide_index=False, width=1500, height=738, use_container_width=True)
+            st.dataframe(classificacao[['Time', 'MP', 'V', 'E', 'D', 'GP', 'GA', 'SG', 'PTS', 'Last 5']].head(20), hide_index=False, width=1500, height=height, use_container_width=True)
 
 
         with tab3:
@@ -354,8 +383,22 @@ else:
 
             classificacao.index.name = ''
 
+            if len(classificacao) == 20:
+                height = 738
+            elif len(classificacao) == 10:
+                height = 388
+            elif len(classificacao) == 12:
+                height = 458
+            elif len(classificacao) == 16:
+                height = 598
+            elif len(classificacao) == 18:
+                height = 668
+            elif len(classificacao) == 19:
+                height = 704
+            else:
+                height = 738
                                 
-            st.dataframe(classificacao[['Time', 'MP', 'V', 'E', 'D', 'GP', 'GA', 'SG', 'PTS', 'Last 5']].head(20), hide_index=False, width=1500, height=738, use_container_width=True)
+            st.dataframe(classificacao[['Time', 'MP', 'V', 'E', 'D', 'GP', 'GA', 'SG', 'PTS', 'Last 5']].head(20), hide_index=False, width=1500, height=height, use_container_width=True)
 
 
         with tab4:

@@ -246,6 +246,10 @@ def load_data(temp):
     EST = pd.read_excel(
         f"https://github.com/futpythontrader/YouTube/raw/main/Bases_de_Dados/FootyStats/Bases_de_Dados_(2022-2024)/Estonia%20Meistriliiga_{temp_1_0}.xlsx"
     )
+    # Egito
+    EGYPT = pd.read_excel(
+        f"https://github.com/futpythontrader/YouTube/raw/refs/heads/main/Bases_de_Dados/FootyStats/Bases_de_Dados_(2022-2024)/Egypt%20Egyptian%20Premier%20League_{temp_1}.xlsx"
+    )
     # Inglaterra
     ING_PL = pd.read_excel(
         f"https://github.com/futpythontrader/YouTube/raw/main/Bases_de_Dados/FootyStats/Bases_de_Dados_(2022-2024)/England%20Premier%20League_{temp_1}.xlsx"
@@ -328,7 +332,7 @@ def load_data(temp):
         f"https://github.com/futpythontrader/YouTube/raw/main/Bases_de_Dados/FootyStats/Bases_de_Dados_(2022-2024)/Turkey%20S%C3%BCper%20Lig_{temp_1}.xlsx")
 
     ## Concatenando todas as Planilhas/Bases
-    df = [AUT, ARG, BUNDES, BR, BEL, CRO, CHI, CHINA, DIN, FRA, FIN, HOL, EST, ING, ITA, JAP, NOR, PAR, PORT, COR, ROM, SCOT, SPAIN, SUI, SWE, EUA, URU, TUR]
+    df = [AUT, ARG, BUNDES, BR, BEL, CRO, CHI, CHINA, DIN, FRA, FIN, HOL, EST, EGYPT, ING, ITA, JAP, NOR, PAR, PORT, COR, ROM, SCOT, SPAIN, SUI, SWE, EUA, URU, TUR]
     df = pd.concat(df)
 
     ## Exclui certas colunas
@@ -491,9 +495,9 @@ if temporada != None:
                     df_novo['Total de escanteios (Casa x Fora)'] = df_novo['Corners_H_FT'].astype(str) + ' x ' + df_novo['Corners_A_FT'].astype(str)
                     # Preenchendo a coluna 'Time com mais escanteios'
                     df_novo['Time com mais escanteios'] = df_novo.apply(
-                        lambda row: f"{row['Total de escanteios (Casa x Fora)']} - {row['Home']}" if row['Time com mais escanteios'] == 1 
-                        else f"{row['Total de escanteios (Casa x Fora)']} - {row['Away']}"
-                        if row['Corners_H_FT'] != row['Corners_A_FT']  else f"{row['Total de escanteios (Casa x Fora)']} - Empate", axis=1)
+                        lambda row: f"{row['Total de escanteios (Casa x Fora)'].replace('.0', '')} - {row['Home']}" if row['Corners_H_FT'] > row['Corners_A_FT']
+                        else f"{row['Total de escanteios (Casa x Fora)'].replace('.0', '')} - {row['Away']}"
+                        if row['Corners_H_FT'] < row['Corners_A_FT']  else f"{row['Total de escanteios (Casa x Fora)'].replace('.0', '')} - Empate", axis=1)
                     df_novo['Win_H'] = df_novo.apply(lambda row: 1 if row['Goals_H_FT'] > row['Goals_A_FT'] else 0, axis=1)
                     df_novo = df_novo.sort_values(by='Date', ascending=False).head(option_last_games)
                     df_filtrado_home = pd.DataFrame(df_novo).reset_index(drop=True) 
@@ -510,9 +514,9 @@ if temporada != None:
                     df_novo['Total de escanteios (Casa x Fora)'] = df_novo['Corners_H_FT'].astype(str) + ' x ' + df_novo['Corners_A_FT'].astype(str)
                     # Preenchendo a coluna 'Time com mais escanteios'
                     df_novo['Time com mais escanteios'] = df_novo.apply(
-                        lambda row: f"{row['Total de escanteios (Casa x Fora)']} - {row['Away']}" if row['Time com mais escanteios'] == 1 
-                        else f"{row['Total de escanteios (Casa x Fora)']} - {row['Home']}" 
-                        if row['Corners_H_FT'] != row['Corners_A_FT']  else f"{row['Total de escanteios (Casa x Fora)']} - Empate", axis=1)
+                        lambda row: f"{row['Total de escanteios (Casa x Fora)'].replace('.0', '')} - {row['Home']}" if row['Corners_H_FT'] > row['Corners_A_FT']
+                        else f"{row['Total de escanteios (Casa x Fora)'].replace('.0', '')} - {row['Away']}"
+                        if row['Corners_H_FT'] < row['Corners_A_FT']  else f"{row['Total de escanteios (Casa x Fora)'].replace('.0', '')} - Empate", axis=1)
                     df_novo['Win_A'] = df_novo.apply(lambda row: 1 if row['Goals_H_FT'] < row['Goals_A_FT'] else 0, axis=1)
                     df_novo = df_novo.sort_values(by='Date', ascending=False).head(option_last_games)
                     df_filtrado_away = pd.DataFrame(df_novo).reset_index(drop=True)
