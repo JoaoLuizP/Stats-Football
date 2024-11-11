@@ -57,7 +57,7 @@ jogos_do_dia_page = st.Page(
 
 pontos_x_realidade = st.Page(
     page="pages/9_Pontos x realidade.py",
-    title="Pontos x Realidade",
+    title="Expectativa x Realidade",
     icon=":material/stacked_line_chart:"
 )
 
