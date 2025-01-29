@@ -73,7 +73,7 @@ pg = st.navigation(
         "Home - Confronto": [home_page, gols_page, cantos_page, chutes_page],
         "Análise": [resumo_ligas, pontos_x_realidade],
         "Ranking": [top_ligas_page, top_teams_page, ranking_por_liga_page],
-        "Jogos do dia": [jogos_do_dia_page]
+        #"Jogos do dia": [jogos_do_dia_page]
   }
 )
 

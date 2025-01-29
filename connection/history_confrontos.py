@@ -50,7 +50,7 @@ if checa_se_tbl_existe:
 
 
 base2022_atual = pd.read_excel(
-    "https://github.com/futpythontrader/YouTube/raw/main/Bases_de_Dados/FootyStats/Base_de_Dados_FootyStats_(2022_2024).xlsx"
+    "https://github.com/futpythontrader/YouTube/raw/main/Bases_de_Dados/FootyStats/Base_de_Dados_FootyStats_(2022_2025).xlsx"
 )
 base_atual_tradada = base2022_atual[base2022_atual != -1].dropna()
 
