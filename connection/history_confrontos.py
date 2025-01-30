@@ -49,14 +49,14 @@ if checa_se_tbl_existe:
 
 
 
-base2022_atual = pd.read_excel(
-    "https://github.com/futpythontrader/YouTube/raw/main/Bases_de_Dados/FootyStats/Base_de_Dados_FootyStats_(2022_2025).xlsx"
+base2022_atual = pd.read_csv(
+    "https://github.com/futpythontrader/YouTube/raw/main/Bases_de_Dados/FootyStats/Base_de_Dados_FootyStats_(2022_2025).csv"
 )
 base_atual_tradada = base2022_atual[base2022_atual != -1].dropna()
 
 
-base_before_2022 = pd.read_excel(
-    "https://github.com/futpythontrader/YouTube/raw/main/Bases_de_Dados/FootyStats/Base_de_Dados_FootyStats_(2006_2021).xlsx"
+base_before_2022 = pd.read_csv(
+    "https://github.com/futpythontrader/YouTube/raw/main/Bases_de_Dados/FootyStats/Base_de_Dados_FootyStats_(2006_2021).csv"
 )
 base_before_2022_tratada = base_before_2022[base_before_2022 != -1].dropna()
 
